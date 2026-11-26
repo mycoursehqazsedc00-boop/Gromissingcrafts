@@ -1,5 +1,5 @@
 local lib = LibCraftsGetLibrary()
-local name, version = "Professions-Leatherworking", 5
+local name, version = "Professions-Leatherworking", 6
 local module = --[[---@type LcProfessionModule]] lib:RegisterProfessionModule(name, version, "Leatherworking")
 if not module then return end
 
@@ -896,6 +896,7 @@ module:NewCraft(10619, "Dragonscale Gauntlets", 225, {SpellSource.Trainer})
     :AddReagent(8165, 12) -- Worn Dragonscale
     :AddReagent(8172, 2) -- Cured Thick Hide
     :AddReagent(8343, 4) -- Heavy Silken Thread
+    :SetSpecialization(Specialization.DragonscaleLeatherworking)
     :Save()
 
 module:NewCraft(10621, "Wolfshead Helm", 225, {SpellSource.Trainer})
@@ -905,6 +906,7 @@ module:NewCraft(10621, "Wolfshead Helm", 225, {SpellSource.Trainer})
     :AddReagent(8172, 2) -- Cured Thick Hide
     :AddReagent(8343, 4) -- Heavy Silken Thread
     :AddReagent(8368, 2) -- Thick Wolfhide
+    :SetSpecialization(Specialization.TribalLeatherworking)
     :Save()
 
 module:NewCraft(10630, "Gauntlets of the Sea", 230, {SpellSource.Trainer})
@@ -914,6 +916,7 @@ module:NewCraft(10630, "Gauntlets of the Sea", 230, {SpellSource.Trainer})
     :AddReagent(7079, 8) -- Globe of Water
     :AddReagent(8172, 1) -- Cured Thick Hide
     :AddReagent(8343, 4) -- Heavy Silken Thread
+    :SetSpecialization(Specialization.ElementalLeatherworking)
     :Save()
 
 module:NewCraft(10632, "Helm of Fire", 250, {SpellSource.Trainer})
@@ -923,6 +926,7 @@ module:NewCraft(10632, "Helm of Fire", 250, {SpellSource.Trainer})
     :AddReagent(7077, 8) -- Heart of Fire
     :AddReagent(8172, 2) -- Cured Thick Hide
     :AddReagent(8343, 4) -- Heavy Silken Thread
+    :SetSpecialization(Specialization.ElementalLeatherworking)
     :Save()
 
 module:NewCraft(10647, "Feathered Breastplate", 250, {SpellSource.Trainer})
@@ -932,6 +936,7 @@ module:NewCraft(10647, "Feathered Breastplate", 250, {SpellSource.Trainer})
     :AddReagent(8168, 40) -- Jet Black Feather
     :AddReagent(8172, 4) -- Cured Thick Hide
     :AddReagent(8343, 4) -- Heavy Silken Thread
+    :SetSpecialization(Specialization.TribalLeatherworking)
     :Save()
 
 module:NewCraft(10650, "Dragonscale Breastplate", 255, {SpellSource.Trainer})
@@ -940,6 +945,7 @@ module:NewCraft(10650, "Dragonscale Breastplate", 255, {SpellSource.Trainer})
     :AddReagent(8165, 30) -- Worn Dragonscale
     :AddReagent(8172, 4) -- Cured Thick Hide
     :AddReagent(8343, 4) -- Heavy Silken Thread
+    :SetSpecialization(Specialization.DragonscaleLeatherworking)
     :Save()
 
 module:NewCraft(14930, "Quickdraw Quiver", 225, {SpellSource.Trainer})
@@ -1752,6 +1758,7 @@ module:NewCraft(24654, "Blue Dragonscale Leggings", 300, {SpellSource.Trainer})
     :AddReagent(14341, 2) -- Rune Thread
     :AddReagent(15407, 2) -- Cured Rugged Hide
     :AddReagent(15415, 36) -- Blue Dragonscale
+    :SetSpecialization(Specialization.DragonscaleLeatherworking)
     :Save()
 
 module:NewCraft(24655, "Green Dragonscale Gauntlets", 280, {SpellSource.Trainer})
@@ -1760,6 +1767,7 @@ module:NewCraft(24655, "Green Dragonscale Gauntlets", 280, {SpellSource.Trainer}
     :AddReagent(14341, 2) -- Rune Thread
     :AddReagent(15407, 1) -- Cured Rugged Hide
     :AddReagent(15412, 30) -- Green Dragonscale
+    :SetSpecialization(Specialization.DragonscaleLeatherworking)
     :Save()
 
 module:NewCraft(24703, "Dreamscale Breastplate", 300, {})
@@ -2208,6 +2216,7 @@ if lib.env.is_turtle_wow then
         :AddReagent(12810, 2) -- Enchanted Leather
         :AddReagent(14341, 2) -- Rune Thread
         :AddReagent(15414, 25) -- Red Dragonscale
+        :SetSpecialization(Specialization.DragonscaleLeatherworking)
         :Save()
 
     module:NewCraft(46659, "Stormscale Leggings", 300, {})

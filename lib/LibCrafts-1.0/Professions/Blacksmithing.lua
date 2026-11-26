@@ -1,5 +1,5 @@
 local lib = LibCraftsGetLibrary()
-local name, version = "Professions-Blacksmithing", 5
+local name, version = "Professions-Blacksmithing", 6
 local module = --[[---@type LcProfessionModule]] lib:RegisterProfessionModule(name, version, "Blacksmithing")
 if not module then return end
 
@@ -721,6 +721,7 @@ module:NewCraft(9957, "Orcish War Leggings", 230, {SpellSource.Quest})
     :SetResult(7929)
     :AddReagent(3860, 12) -- Mithril Bar
     :AddReagent(7067, 1) -- Elemental Earth
+    :SetSpecialization(Specialization.Armorsmith)
     :Save()
 
 module:NewCraft(9959, "Heavy Mithril Breastplate", 230, {SpellSource.Trainer})
@@ -768,6 +769,7 @@ module:NewCraft(9972, "Ornate Mithril Breastplate", 240, {SpellSource.Quest})
     :AddReagent(6037, 6) -- Truesilver Bar
     :AddReagent(7077, 1) -- Heart of Fire
     :AddReagent(7966, 1) -- Solid Grinding Stone
+    :SetSpecialization(Specialization.Armorsmith)
     :Save()
 
 module:NewCraft(9974, "Truesilver Breastplate", 245, {SpellSource.Trainer})
@@ -787,6 +789,7 @@ module:NewCraft(9979, "Ornate Mithril Boots", 245, {SpellSource.Quest})
     :AddReagent(6037, 2) -- Truesilver Bar
     :AddReagent(7909, 1) -- Aquamarine
     :AddReagent(7966, 1) -- Solid Grinding Stone
+    :SetSpecialization(Specialization.Armorsmith)
     :Save()
 
 module:NewCraft(9980, "Ornate Mithril Helm", 245, {SpellSource.Quest})
@@ -795,6 +798,7 @@ module:NewCraft(9980, "Ornate Mithril Helm", 245, {SpellSource.Quest})
     :AddReagent(6037, 2) -- Truesilver Bar
     :AddReagent(7966, 1) -- Solid Grinding Stone
     :AddReagent(7971, 1) -- Black Pearl
+    :SetSpecialization(Specialization.Armorsmith)
     :Save()
 
 module:NewCraft(9983, "Copper Claymore", 30, {SpellSource.Trainer})
@@ -2084,6 +2088,7 @@ if lib.env.is_turtle_wow then
         :AddRecipe(7994, Quality.Uncommon, {RecipeSource.Quest})
         :AddReagent(3860, 12) -- Mithril Bar
         :AddReagent(7067, 1) -- Elemental Earth
+        :SetSpecialization(Specialization.Armorsmith)
         :Save()
 
     module:NewCraft(16660, "Dawnbringer Shoulders", 290, {})

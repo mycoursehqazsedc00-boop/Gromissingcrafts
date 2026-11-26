@@ -219,7 +219,9 @@ local function scan_skills(adapter)
     local expanded = false
 
     local function restore_state()
-        if expanded then
+        local atsw = getglobal("ATSWFrame")
+        local atswActive = atsw ~= nil and atsw:IsVisible()
+        if expanded and not atswActive then
             for i = adapter.GetNumSkills() or 0, 1, -1 do
                 local skill_name, skill_type_or_difficulty, _, _ = adapter.GetSkillInfo(i)
                 if skill_type_or_difficulty == "header" and set_of_headers_to_collapse[ --[[---@not nil]] skill_name] ~= nil then
@@ -807,6 +809,8 @@ end
 
 local craft_frame_successfully_scanned_at = -1
 local trade_skill_frame_successfully_scanned_at = -1
+local last_craft_profession = nil
+local last_trade_skill_profession = nil
 
 lib.event_frame = CreateFrame("Frame")
 
@@ -854,15 +858,23 @@ lib.event_frame:SetScript("OnEvent", function()
         do_trade_skill_scan = true
     end
 
-    if do_craft_scan and craft_frame_successfully_scanned_at ~= now then
-        if scan_craft_frame() then
-            craft_frame_successfully_scanned_at = now
+    if do_craft_scan then
+        local profName = GetCraftDisplaySkillLine()
+        if profName ~= last_craft_profession or (now - craft_frame_successfully_scanned_at) >= 0.5 then
+            if scan_craft_frame() then
+                craft_frame_successfully_scanned_at = now
+                last_craft_profession = profName
+            end
         end
     end
 
-    if do_trade_skill_scan and trade_skill_frame_successfully_scanned_at ~= now then
-        if scan_trade_skill_frame() then
-            trade_skill_frame_successfully_scanned_at = now
+    if do_trade_skill_scan then
+        local profName = GetTradeSkillLine()
+        if profName ~= last_trade_skill_profession or (now - trade_skill_frame_successfully_scanned_at) >= 0.5 then
+            if scan_trade_skill_frame() then
+                trade_skill_frame_successfully_scanned_at = now
+                last_trade_skill_profession = profName
+            end
         end
     end
 end)
